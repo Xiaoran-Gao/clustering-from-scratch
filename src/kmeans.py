@@ -63,10 +63,7 @@ class KMeans:
         return new_centroids
 
     def _is_converged(self, old_centroids, new_centroids):
-        if np.linalg.norm(new_centroids - old_centroids) >= self.tol:
-            return False
-        else:
-            return True
+        return np.linalg.norm(new_centroids - old_centroids) < self.tol
 
     def _compute_inertia(self, X, labels):
         inertia = 0
